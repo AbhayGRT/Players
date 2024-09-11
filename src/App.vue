@@ -2,7 +2,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Sportz Interactive</a>
+        <a class="navbar-brand" href="#">Players</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <select v-model="selectedTeam" @change="filterPlayers">
@@ -48,18 +48,18 @@ export default {
     };
   },
   mounted() {
-  this.filterPlayers(); // Ensure that it applies default filters on mount
+  this.filterPlayers(); 
 },
   methods: {
   filterPlayers() {
     let filtered = this.originalPlayers;
     
-    // Filter by selected team
+
     if (this.selectedTeam !== 'ALL') {
       filtered = filtered.filter(player => player.team_name === this.selectedTeam);
     }
     
-    // Filter by search query
+   
     const query = this.searchQuery.toLowerCase();
     if (query) {
       filtered = filtered.filter(player =>
@@ -71,7 +71,7 @@ export default {
     this.filteredPlayers = filtered;
   },
   searchPlayers() {
-    // This method is no longer needed if filterPlayers handles the search
+   
     this.filterPlayers();
   }
 }
